@@ -1,0 +1,20 @@
+
+<h3>Bank Statement</h3>
+<table>
+    <tr>
+        <th>date</th>
+        <th>amount</th>
+        <th>balance</th>
+    </tr>
+    <tr *ngFor="let tran of transactions">
+        <td>{{ tran.date | date:"mm-dd-yyyy" }}</td>
+        <td>{{ tran.amount >= 0 ? "+" : "-" }} {{ tran.amount | currency }}</td>
+        <td>{{ tran.balance | currency }}</td>
+    </tr>
+</table>
+
+<div>
+    <input type="number" [(ngModel)]="amount" placeholder="amount" />
+    <button (click)="deposit()">Deposit {{amount | currency}}</button> 
+    <button (click)="withdraw()">Withdraw {{amount | currency}}</button>
+</div>
